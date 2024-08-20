@@ -1,0 +1,192 @@
+@charset "UTF-8"; /*Codificação de caracteres*/
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kaushan+Script&display=swap'); /*Fonte externa web*/
+
+@font-face { /*Fonte externa local*/
+    font-family: 'idroid';
+    src: url(../fontes/idroid.otf);
+    font-weight: normal;
+}
+
+:root{ /*Declaração de variáveis em CSS*/
+    --c0:#c5edb6;
+    --c1:#83e1ad;
+    --c2: #3ddc84;
+    --c3: #2fa866;
+    --c4: #1a5c37;
+    --c5: #063d1e;
+
+    --fonte-padrao: arial, verdana, helvetica, sans-serif;
+    --fonte-destaque: "Bebas Neue", sans-serif;
+    --fonte-idroid: 'idroid', 'cursive';
+}
+
+*{ /*Configurações Globais*/
+    margin: 0px;
+    padding:  0px;
+}
+body{
+    background-color: var(--c0);
+    font-family: var(--fonte-padrao);
+}
+
+p{
+    margin: 15px 0px 15px 0px;
+}
+
+a.externo::after{ /*Adicionado icone nos link's externos*/
+    content: '\00A0\1F517';
+}
+
+header{
+    background-color: var(--c5);
+    padding-top: 30px;
+    text-align: center;
+    min-height: 150px; /*Altura mínima do bloco*/
+    background-image: linear-gradient(to bottom, var(--c2), var(--c5));
+}
+header>h1{ /*o 'h1' está contindo a um nível imediatamente abaixo do 'header'*/
+    color: white;
+    font-family: var(--fonte-destaque);
+    font-size: 3em;
+    font-weight: normal;
+    margin-bottom: 20px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.410);
+}
+header>p{
+    color: white;
+    font-family: var(--fonte-padrao);
+    font-size: 1.2em;
+    max-width: 500px;
+    margin: auto;
+    margin-bottom: 30px;
+    padding: 0px 10px 10px 10px;
+}
+nav{
+    background-color: var(--c5);
+    padding: 10px;
+    box-shadow: 0px 7px 10px 0px rgba(0, 0, 0, 0.410);
+    text-align: center;
+}
+nav>a:hover{
+    background-color: var(--c3);
+    color: var(--c5)
+}
+nav>a{
+    color: var(--c1);
+    padding: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition-duration: 0.5s; /*tempo de transição para execução da config.*/
+}
+
+main{
+    background-color: white;
+    min-width: 280px; /*Menor dimensão que o Block irá atingir, sem fazer rolagem horizontal*/
+    max-width: 700px; /*Máxima dimensão horizontal que o bloco irá ocupar*/
+    margin: auto; /*Centralizar o bloco*/
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.400);border-radius: 0px 0px 10px 10px;
+}
+
+main>h1{
+    font-family: var(--fonte-idroid);
+    color: var(--c5);
+    font-weight: normal;
+    font-size: 1.8em;
+}
+main>h2{
+    font-family: var(--fonte-idroid);
+    color: var(--c5);
+    font-size: 1.3em;
+    font-weight: normal;
+    background-image: linear-gradient(to right, var(--c1), transparent);
+    padding: 5px;
+    margin: 10px;
+    text-indent: 10 px;
+}
+main p{ /*o 'p' está contido no 'main' porém em qualquer nível*/
+    text-align: justify;
+    text-indent: 30px;
+    line-height: 2em; /*Espaçamento entre linhas*/
+    font-size: 1em;
+}
+main a{
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--c4);
+}
+main a:hover{
+    text-decoration: underline;
+}
+main strong{
+    color: var(--c4);
+}
+main img{
+    width: 100%; /* Faz com que a imagem se adapte ao bloco*/
+}
+main>img.pequena{
+    max-width: 300px; /*Defini a largura máxima que o bloco pode chegar*/
+    display: block; /*Converter a  box para block in level, as imagens são inlevel e não block level*/
+    margin: auto; /* Centralizar bloco*/
+}
+
+main div.video{
+    padding: 30px;
+    margin: 0px -20px 10px -20px;
+    background-color: var(--c5); 
+    
+    /*Reponsividade para vídeo - Começo*/
+    /*extremamente importante colocar em % para que seja sempre relativo ao tamanho da 'div'*/
+
+    position: relative; /* faz com que o tamanho da div se adeque*/
+    padding-bottom: 58%;
+}
+main div.video>iframe{
+    position: absolute; /* fixa a dimensões de posicionamento do box*/
+    top: 10%; /*distância entre a borda superior e o ponto extremo superior-esquerdo do elemento*/
+    left: 5%; /*distância entre a borda lateral esquerda e o ponto extremo superior-esquerdo do elemento*/
+    width: 90%; /* Largura da box*/
+    height: 80%; /* Altura da box*/
+}
+
+    /*Reponsividade para vídeo - Fim*/
+
+aside{
+    background-color: var(--c1);
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px 2px rgba(0, 0, 0, 0.410);
+
+}
+aside>h3{
+    background-color: var(--c4);
+    color: white;
+    border-radius: 15px 15px 0px 0px ;
+    padding: 10px;
+    margin:-10px -10px 0px -10px; /*Margin negativa cresce para fora da box*/
+    
+}
+aside>ul{
+    list-style-position: inside; /*Colocar o MARCADOR da lista para dentro do bloco, por default ele fica outside*/
+    list-style-type: '\2714\00A0\00A0'; /* Estilo personalizado da MARCADOR (não é compatível com todos os navegadores*/
+    columns: 2; /* Número de Colunas que a lista será feita*/
+}
+footer{
+    background-color: var(--c5);
+    color: white;
+    text-align: center;
+    font-size: 0.8em;
+    padding: 5px;
+}
+footer a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+footer a:hover{
+    text-decoration: underline;
+    color: var(--c1);
+}
